@@ -1,0 +1,12 @@
+<div class="container-head header border-home">
+ <h2>Edit Tweets</h2>
+</div>
+<div class= "container-head border w-full">
+  <div class= "right--items">Body</div>
+  <%= form_with model: @tweet do |f| %>
+    <div class = "flex-column">
+      <div><%= f.text_area :body, :class => "boder--comment__edit"%></div>
+      <div class = "button--submit"><%= f.submit "Edit", :class => "button button--comment"%></div>
+    </div>
+  <%end%>
+</div>

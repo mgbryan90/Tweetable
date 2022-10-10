@@ -1,0 +1,61 @@
+.email {
+  width: 260px;
+  height: 24px;
+  position: relative;
+}
+
+.avatar {
+  border-radius: 100;
+}
+
+.with {
+  width: 260px;
+}
+
+.input__container {
+  border: 1px solid var(--tweet-100);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: white;
+  size: 1rem;
+}
+
+.input__content:focus {
+  outline: none;
+}
+
+.input__content::placeholder {
+  color: var(--gray-200);
+}
+
+.input__container:focus-within {
+  box-shadow: var(--shadow-input-primary);
+  border: 1px solid var(--primary-300);
+}
+
+.flex--form {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+}
+
+.tipo--current__password {
+  font-size: 12px;
+  line-height: 21px;
+  text-align: justify;
+}
+
+.tipo--password {
+  font-size: 14px;
+  line-height: 21px;
+  text-align: justify;
+}
+
+.cancel--account {
+  font-size: 15px;
+  line-height: 10px;
+  text-align: justify;
+}

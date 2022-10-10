@@ -1,0 +1,33 @@
+.section {
+  padding: 64px 16px;
+}
+
+.section-sm {
+  padding: 32px;
+}
+
+.container{
+  max-width: 600px;
+  margin: auto;
+  background: var(--gray-100);
+}
+
+.container-head {
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  background: #FFFFFF;
+}
+
+.container-tweet {
+  max-width: 600px;
+  margin: auto;
+  background: #FFFFFF;
+}
+
+.container-profile {
+  text-align: center;
+  max-width: 220px;
+  margin-bottom: 1rem;
+  background: #FFFFFF;
+}

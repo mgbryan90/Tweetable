@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TweetableIndividual</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="container-tweet">
+      <header class="header">
+        <nav class="navbar">
+            <div><%= link_to image_tag("logo_tweet.png", :class => "login"), tweets_path, class: "fit-content"%></div>
+            <div class= "flex-center-items fit-content">
+              <% if user_signed_in? %>
+                <li> <%= link_to image_tag("utils/edit_profile.png",:class => "items-center button--space"), edit_user_registration_path %> </li>
+                <li> <%= link_to image_tag("utils/logout.png",:class => "button--reference button--space"), destroy_user_session_path, data: { turbo_method: :delete} %> </li>
+                <% else %>
+                <li><%= link_to image_tag("utils/login.png",:class => "button--reference button--space"), new_user_session_path %></li>
+              <% end %>
+            </div>
+        </nav>
+      </header>
+    
+      
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+      
+    </div>
+  </body>
+</html>

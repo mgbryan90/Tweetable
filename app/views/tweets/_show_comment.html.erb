@@ -1,0 +1,5 @@
+<%=form_with model: comment do |f| %>
+   <%= f.text_area :body, placeholder: "Remember to thing before write...", :class => "w-full border--comment"%>
+   <%= f.hidden_field :tweet_id, value: @tweet.id %>
+   <div class = "button--comment__direction"><%= f.submit "Comment", :class => "button button--comment"%>
+  <%end%>

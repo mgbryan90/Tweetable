@@ -1,0 +1,60 @@
+<div class="container-head header border-home">
+ <h2>Edit Profile</h2>
+</div>
+<div class = "flex-center-items border mb-xl">
+  <div data-turbo = "false" class= "container-profile  gap-1">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <div class = "right--items__email"><%= f.label :email %><br /></div>
+        <div><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input__content input__container" %></div>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field mt-1">
+        <div class = "right--items__username"><%= f.label :username %><br /></div>
+        <%= f.text_field :username, autocomplete: "username", placeholder: "username", class: "input__content input__container"%>
+      </div>
+
+      <div class="field mt-1">
+        <div class = "right--items__name"><%= f.label :name %><br /></div>
+        <%= f.text_field :name, autocomplete: "name", placeholder: "name", class: "input__content input__container"%>
+      </div>
+
+      <div class="field mt-1">
+        <%=f.label :avatar, class: "content-xs overline"%><br />
+        <%=image_tag(@user.avatar,:class =>"user-avatar") if @user.avatar.attached? %>
+          <div class = "flex--form">
+          <%=f.file_field :avatar, accept: "image/png, image/jpeg", :class => "avatar input__content input__container "%>   
+          </div>
+      </div>
+
+      <div class="field mt-1">
+        <div class = "tipo--password"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br /></div>
+        <%= f.password_field :password, autocomplete: "new-password", class: "input__content input__container" %>
+        <% if @minimum_password_length %>
+          
+        <% end %>
+      </div>
+
+      <div class="field mt-1">
+        <div class = "tipo--current__password"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br /></div>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "input__content input__container" %>
+      </div>
+
+      <div class="actions button--submit mt-1">
+        <%= f.submit "Submit", :class => "button button--comment" %>
+      </div>
+    <% end %>
+
+   <p class = "mt-2"><%= link_to registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, :class => "cancel_account" do %>
+       <span>Cancel my account</span>
+        <i></i>
+       <%end%>
+    </p>
+  </div>
+</div>

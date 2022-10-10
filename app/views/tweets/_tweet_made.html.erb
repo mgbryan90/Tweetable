@@ -1,0 +1,30 @@
+<div class= "flex border">
+  <div class = "mr-1">
+    <% user = User.find(tweet.user_id)%>
+    <%= image_tag(user.avatar)%>
+  </div>
+  <div class= "w-full word--break">
+    <div class= "flex gap-1">
+      <div class= "heading"><%= tweet.user.name%></div>
+      <div class= "heading--regular">
+        <%= "@#{tweet.user.username}"%>
+        <%= time_ago_in_words(tweet.created_at)%><br>
+      </div>
+    </div>
+    <%= tweet.body %><br/>
+    <div class= "p-0 flex flex-between">
+      <div>
+        <%= link_to tweet_path(tweet) do %> 
+        <%= image_tag("comments/orbe_comment.png") %>
+        <%= tweet.comments_count%><br>
+        <%end%>
+      </div>
+      <div>
+        <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <%= link_to image_tag("edit.png"), edit_tweet_path(tweet), :class => "mr-1"%>
+        <%= link_to image_tag("delete.png"), tweet_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Sure?"} %><br>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

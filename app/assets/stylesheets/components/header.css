@@ -1,0 +1,16 @@
+.header {
+  position: relative;
+  padding: 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.login {
+  max-height: 40px;
+}
